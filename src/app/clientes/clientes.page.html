@@ -1,0 +1,28 @@
+
+
+<ion-content [fullscreen]="true" style="--background: #ffffff;">
+
+  <ion-toolbar>
+    <ion-title size="large" class="titulo-principal">clientes</ion-title>
+  </ion-toolbar>
+
+  <ion-grid class="tabla-con-borde">
+    <ion-row class="fila-header">
+      <ion-col>Nombre</ion-col>
+      <ion-col>Documento</ion-col>
+      <ion-col>Nacionalidad</ion-col>
+      <ion-col>Pais</ion-col>
+      <ion-col>Direccion</ion-col>
+      <ion-col>Telefono</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let clients of clientes">
+      <ion-col position="stacked">{{clients.nombre}}</ion-col>
+      <ion-col position="stacked">{{clients.documento}}</ion-col>
+      <ion-col position="stacked">{{clients.nacionalidad}}</ion-col>
+      <ion-col position="stacked">{{clients.pais}}</ion-col>
+      <ion-col position="stacked">{{clients.direccion}}</ion-col>
+      <ion-col position="stacked">{{clients.telefono}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

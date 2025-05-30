@@ -1,0 +1,64 @@
+
+
+<ion-content [fullscreen]="true" style="--background: #ffffff;">
+
+  <ion-toolbar >
+    <ion-title size="large" class="titulo-principal">tickets de
+      Soporte</ion-title>
+  </ion-toolbar>
+
+  <ion-grid class="tabla-con-borde">
+    <ion-row class="fila-header">
+      <ion-col>Asunto</ion-col>
+      <ion-col>Descripcion</ion-col>
+      <ion-col>Estado</ion-col>
+      <ion-col>Fecha de Creacion</ion-col>
+      <ion-col>Asignado a:</ion-col>
+      <ion-col>Acciones:</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let t of tickets">
+      <ion-col>{{t.asunto}}</ion-col>
+      <ion-col>{{t.descripcion}}</ion-col>
+      <ion-col>{{t.estado}}</ion-col>
+      <ion-col>{{t.fecha_creacion}}</ion-col>
+      <ion-col>{{t.asignado_a}}</ion-col>
+      <ion-col>
+        <ion-button class="boton-editar" (click)="edit(t)">
+          <ion-icon slot="icon-only" name="create" color></ion-icon>
+        </ion-button>
+        <ion-button class="boton-eliminar" (click)="delete(t)">
+          <ion-icon slot="icon-only" name="trash" ></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="fondo-form">
+    <ion-item>
+      <ion-label position="stacked">Asunto=</ion-label>
+      <ion-input [(ngModel)]="newTicket.asunto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Descripcion=</ion-label>
+      <ion-input [(ngModel)]="newTicket.descripcion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Estado =</ion-label>
+      <ion-input [(ngModel)]="newTicket.estado"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Fecha de creacion =</ion-label>
+      <ion-input [(ngModel)]="newTicket.fecha_creacion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Asignado a =</ion-label>
+      <ion-input [(ngModel)]="newTicket.asignado_a"></ion-input>
+    </ion-item>
+  </ion-card>
+  <div>
+    <ion-button class="boton-guardar" (click)="save()" expand="block"
+      shape="round">
+      Guardar
+    </ion-button>
+  </div>
+</ion-content>
